@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import todoContext from "../context/todoContext";
+import { BtnSimple } from "react-buttons-library";
 
 const AddTodo = () => {
   const [newTodo, setNewTodo] = useState("");
@@ -22,12 +23,7 @@ const AddTodo = () => {
           className="w-[80%] h-full outline-none border-none p-3 rounded-lg"
           type="text"
         />
-        <button
-          onClick={handleAddTodo}
-          className="bg-white rounded-lg px-5 py-3 active:scale-[0.8] transition-all duration-100 w-[20%]"
-        >
-          Add Todo
-        </button>
+        <BtnSimple label="Add Todo" btnClass="btnWht" onClick={handleAddTodo} />
       </div>
     </>
   );

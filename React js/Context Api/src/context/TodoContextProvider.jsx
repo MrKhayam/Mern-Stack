@@ -3,15 +3,22 @@ import todoContext from "./todoContext"
 
 const TodoContextProvider = ({ children }) => {
     const [todo, setTodo] = useState([
-      "Hello World", "I am Khayam"
+      
     ]);
 
 
     const addTodo = (newTodo) => {
       setTodo((prevTodos) => [...prevTodos, newTodo]);
-    };
+  };
+  
+  const removeTodo = (todoTextId) => {
+    const removedTodos = todo.filter((singleTodo) => {
+      return todoTextId !== singleTodo;
+    });
+    setTodo(removedTodos);
+  }
     return (
-        <todoContext.Provider value={{todo, setTodo, addTodo}}>
+        <todoContext.Provider value={{todo, setTodo, addTodo, removeTodo}}>
             {children}
         </todoContext.Provider>
     );
