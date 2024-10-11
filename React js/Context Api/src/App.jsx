@@ -1,16 +1,17 @@
 import React from 'react'
-import CountContextProvider from './context/countContextProvider'
-import Counter from './components/Counter'
+import TodoContextProvider from './context/TodoContextProvider'
+import AddTodo from './components/AddTodo'
+import Todos from './components/Todos'
+
 
 const App = () => {
   return (
-    <>
-      <CountContextProvider>
-        <div className="w-full min-h-screen flex items-center justify-center bg-zinc-900">
-          <Counter />
-        </div>
-      </CountContextProvider> 
-    </>
+    <TodoContextProvider>
+      <div className="w-full min-h-screen bg-zinc-900 border-t border-zinc-900">
+        <AddTodo />
+        <Todos />
+      </div> 
+    </TodoContextProvider>
   )
 }
 
