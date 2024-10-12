@@ -1,22 +1,24 @@
 import React from 'react'
-import Login from './components/Login';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import UserContextProvider from './context/userContext/UserContextProvider';
+import { useState } from 'react';
+import { TodoProvider } from './context';
 
 const App = () => {
+  const [todos, setTodos] = useState([]);
   return (
-    <UserContextProvider>
-        <Router>
-        <div className="w-full h-screen bg-zinc-900 border-t border-zinc-900">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
+    <TodoProvider>
+      <div className="bg-[#172842] min-h-screen py-8">
+        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+          <h1 className="text-2xl font-bold text-center mb-8 mt-2">
+            Manage Your Todos
+          </h1>
+          <div className="mb-4">{/* Todo form goes here */}</div>
+          <div className="flex flex-wrap gap-y-3">
+            {/*Loop and Add TodoItem here */}
+          </div>
+        </div>
       </div>
-        </Router>
-    </UserContextProvider>
+    </TodoProvider>
   );
 }
 
-export default App;
+export default App
