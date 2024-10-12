@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useTodo } from "../hooks/useTodo";
 
-const AddTodo = () => {
-  const { addTodo } = useTodo();
+const AddTodo = ({ addTodo }) => {
   const [newTodo, setNewTodo] = useState("");
 
   const handleAddTodo = () => {
