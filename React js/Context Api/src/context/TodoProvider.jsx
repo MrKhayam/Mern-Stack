@@ -3,11 +3,7 @@ import { TodoContext } from "./TodoContext";
 
 export const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      todoText: "Khayam Ijaz",
-      completed: false,
-    },
+    
   ]);
 
   return (

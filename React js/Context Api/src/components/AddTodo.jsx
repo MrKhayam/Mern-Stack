@@ -2,13 +2,15 @@ import React, { useContext, useState } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 const AddTodo = () => {
-  const [newTodo, setNewTodo] = useState({});
+  const [newTodo, setNewTodo] = useState("");
   const { todos, setTodos } = useContext(TodoContext);
   const addTodo = () => {
     if (newTodo) {
       setTodos((prev) => [...prev, { id: Date.now(), todoText: newTodo, completed: false }]);
+      const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+      localStorage.setItem("todos", JSON.stringify([...storedTodos, { id: Date.now(), todoText: newTodo, completed: false }]));
       setNewTodo("");
-      console.log(todos)
+      
     }
   }
   return (
