@@ -1,19 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './components/Home'
-import Login from './components/Login'
 
 const App = () => {
   return (
     <>
-      <Router>
-        <div className='w-full h-screen flex items-center justify-center bg-zinc-900'>
-        <Routes>
-          <Route path='/' element={<Login />} />
-            <Route path='/home' element={<Home />} />
-          </Routes>
-        </div>
-      </Router>
+      <div className="w-full h-screen bg-zinc-900">
+        
+      </div> 
     </>
   )
 }
