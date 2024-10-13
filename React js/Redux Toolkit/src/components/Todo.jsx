@@ -29,11 +29,11 @@ const Todo = ({ todoText, todoId, completed }) => {
   return (
     <>
       <div
-        className={`w-1/2 bg-white rounded-md p-3 mx-auto h-10 flex transition-all duration-200 justify-between items-center ${
+        className={`md:w-1/2 w-[95%] bg-white rounded-md p-3 mx-auto h-10 flex transition-all duration-200 justify-between items-center ${
           completed ? "bg-green-300" : null
         }`}
       >
-        <div className="flex items-center gap-5 w-full">
+        <div className="flex items-center md:gap-5 gap-3 w-full">
           <input
             checked={completed}
             onChange={handleCheck}

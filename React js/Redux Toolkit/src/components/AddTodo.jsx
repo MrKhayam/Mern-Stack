@@ -17,17 +17,17 @@ const AddTodo = () => {
   }
   return (
     <>
-      <div className="w-1/2 h-10 mx-auto flex gap-3 mt-20">
+      <div className="md:w-1/2 w-full h-10 mx-auto flex md:flex-row flex-col items-center gap-3 mt-8 md:mt-20">
         <input
           placeholder="Enter Your Todos Here..."
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          className="w-[80%] h-full bg-white rounded-md p-3 outline-none border-none"
+          className="md:w-[80%] w-[95%] h-full bg-white rounded-md p-3 outline-none border-none"
           type="text"
         />
         <button
           onClick={handleClick}
-          className="w-[20%] h-full rounded-md bg-white text-black transition-all duration-200 active:scale-[0.8]"
+          className="md:w-[20%] w-[95%] md:h-full py-2 rounded-md bg-white text-black transition-all duration-200 active:scale-[0.8]"
         >
           Add Todo
         </button>
