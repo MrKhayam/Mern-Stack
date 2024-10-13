@@ -8,8 +8,12 @@ const AddTodo = () => {
 
 
   const handleClick = () => {
-    dispatch(addTodo(newTodo));
-    setNewTodo("");
+    if (newTodo) {
+      dispatch(addTodo(newTodo));
+      setNewTodo("");
+    } else {
+      alert("Todo can't be Empty...");
+    }
   }
   return (
     <>
