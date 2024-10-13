@@ -1,21 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { useEffect } from "react";
 
 const initialState = {
-  todos: [
-    {
-      id: 1,
-      text: "Complete React Js in Next 15 Days...",
-      completed: false,
-      update: false,
-    },
-    {
-      id: 2,
-      text: "Then Complete Node and Express in 30 Days...",
-      completed: false,
-      update: false,
-    },
-  ],
+  todos: [],
 };
 
 export const todoSlice = createSlice({
@@ -30,9 +16,14 @@ export const todoSlice = createSlice({
         update: false,
       };
       state.todos.push(newTodo);
+      const localTodos = JSON.parse(localStorage.getItem("todos")) || [];
+      localStorage.setItem("todos", JSON.stringify([...localTodos, ...state.todos]));
+      window.location.reload();
     },
     removeTodo: (state, action) => {
-      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      const localTodos = JSON.parse(localStorage.getItem("todos")) || [];
+      localStorage.setItem("todos", JSON.stringify(localTodos.filter((todo) => todo.id !== action.payload)));
+      window.location.reload();
     },
     completeTodo: (state, action) => {
       state.todos = state.todos.map((singleTodo) =>
@@ -41,8 +32,17 @@ export const todoSlice = createSlice({
           : singleTodo
       );
     },
+    updateTodo: (state, action) => {
+      state.todos = state.todos.map((singleTodo) => {
+        if (singleTodo.id === action.payload.id) {
+          singleTodo.text = action.payload.text;
+          singleTodo.update = false;
+        }
+        return singleTodo;
+      });
+    },
   },
 });
-
-export const { addTodo, removeTodo, completeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, completeTodo, updateTodo } =
+  todoSlice.actions;
 export default todoSlice.reducer;
