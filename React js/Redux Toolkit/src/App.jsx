@@ -13,7 +13,7 @@ const App = () => {
         <h1 className='text-center text-white text-4xl font-bold mb-5'>Your Todos Goes Here</h1>
           {
             todos.map((singleTodo) => {
-              return <Todo key={singleTodo.id} todoText={singleTodo.text} />
+              return <Todo key={singleTodo.id} todoId={singleTodo.id} completed={singleTodo.completed} todoText={singleTodo.text} />
             })
           }
         </div>

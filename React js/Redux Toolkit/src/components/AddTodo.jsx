@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todoSlice";
 
 const AddTodo = () => {
   const [newTodo, setNewTodo] = useState("");
+  const dispatch = useDispatch();
 
 
   const handleClick = () => {
-    
+    dispatch(addTodo(newTodo));
+    setNewTodo("");
   }
   return (
     <>
