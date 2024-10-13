@@ -30,7 +30,7 @@ const Todo = ({ todoText, todoId, completed }) => {
     <>
       <div
         className={`w-1/2 bg-white rounded-md p-3 mx-auto h-10 flex transition-all duration-200 justify-between items-center ${
-          completed ? "bg-green-400" : null
+          completed ? "bg-green-300" : null
         }`}
       >
         <div className="flex items-center gap-5 w-full">
@@ -45,7 +45,7 @@ const Todo = ({ todoText, todoId, completed }) => {
               type="text"
               value={editedText}
               onChange={(e) => setEditedText(e.target.value)}
-              className="border-b w-full border-gray-300 focus:outline-none focus:border-blue-500"
+              className={`border-b w-full border-gray-300 focus:outline-none focus:border-blue-500 ${completed ? 'bg-green-300' : 'bg-white'}`}
             />
           ) : (
             <p className={`${completed ? "line-through" : null}`}>{todoText}</p>
